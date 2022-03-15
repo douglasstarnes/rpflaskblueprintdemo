@@ -8,13 +8,13 @@ from app_state import state
 def index():
     return render_template("index.html", username=state["username"])
 
-@app.route("/login/<user>")
+@app.route("/auth/login/<user>")
 def login(user):
     state["logged_in"] = True
     state["username"] = user
     return redirect(url_for("index"))
 
-@app.route("/logout")
+@app.route("/auth/logout")
 def logout():
     state["logged_in"] = False
     state["username"] = None
