@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect, url_for
 
 app = Flask(__name__)
+app.config["SECRET_KEY"] = "yekterces"
 
 from app_state import state
 
@@ -16,7 +17,7 @@ def catalog():
 def admin():
     if not state["logged_in"]:
         return redirect(url_for("index"))
-    return render_template("admin.html")
+    return render_template("admin.html", username=state["username"])
 
 from views.example import example_blueprint
 from views.auth import auth_blueprint
