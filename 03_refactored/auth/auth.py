@@ -15,7 +15,7 @@ def login():
         state["username"] = username
         return redirect(url_for("index"))
     flash("Wrong username/password")
-    return redirect(url_for("auth.auth.login"))
+    return redirect(url_for("auth.login"))
 
 @auth_blueprint.route("/register", methods=["GET", "POST"])
 def register():
@@ -25,12 +25,13 @@ def register():
     password = request.form["password"]
     if username in state["auth"].keys():
         flash("username exists")
-        return redirect(url_for("auth.auth.register"))
+        return redirect(url_for("auth.register"))
     state["auth"][username] = password
-    return redirect(url_for("auth.auth.login"))
+    return redirect(url_for("auth.login"))
 
 @auth_blueprint.route("/logout")
 def logout():
     state["logged_in"] = False
     state["username"] = None
+    state["cart"].clear()
     return redirect(url_for("index"))
