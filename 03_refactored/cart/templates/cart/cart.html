@@ -1,0 +1,21 @@
+{% extends "cart-base.html" %} 
+
+{% block content %} 
+<h4>{{username}}'s Cart</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Item</th>
+            <th scope="col">Cost</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for item in items %}
+        <tr>
+            <td>{{item["item"]}}</td>
+            <td>${{item["cost"]}}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

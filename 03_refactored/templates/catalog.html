@@ -1,0 +1,22 @@
+{% extends "base.html" %} 
+
+{% block content %} 
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Item</th>
+            <th scope="col">Cost</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for item in items %}
+        <tr>
+            <td>{{item}}</td>
+            <td>${{items[item]}}</td>
+            <td><a href="/cart/add/{{item}}"> Add To Cart </a></td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

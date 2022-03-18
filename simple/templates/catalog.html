@@ -1,9 +1,0 @@
-{% extends "base.html" %} 
-
-{% block content %} 
-<ul>
-    {% for item in items %}
-        <li><a href="/cart/add/{{item}}">{{item}} - ${{items[item]}}</a></li>
-    {% endfor %}
-</ul>
-{% endblock %}
