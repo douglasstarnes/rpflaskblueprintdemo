@@ -16,7 +16,7 @@ def cart_add(item):
         return redirect(url_for("index"))
     if item in state["catalog"].keys():
         state["cart"].append({"item": item, "cost": state["catalog"][item]})
-    return redirect(url_for("cart.cart.cart"))
+    return redirect(url_for("cart.cart"))
 
 @cart_blueprint.route("/checkout")
 def cart_checkout():
