@@ -1,27 +1,29 @@
 <html>
-    <body>
+
+<body>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/auth/register">Register</a></li>
+        <li><a href="/auth/login">Login</a></li>
+        <li><a href="/auth/logout">Logout</a></li>
+        <li><a href="/catalog">Catalog</a></li>
+        <li><a href="/cart/view">Cart</a></li>
+        <li><a href="/cart/checkout">Checkout</a></li>
+        <li><a href="/admin">Admin</a></li>
+    </ul>
+    <span>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/auth/register">Register</a></li>
-            <li><a href="/auth/login">Login</a></li>
-            <li><a href="/auth/logout">Logout</a></li>
-            <li><a href="/catalog">Catalog</a></li>
-            <li><a href="/cart">Cart</a></li>
-            <li><a href="/cart/checkout">Checkout</a></li>
-            <li><a href="/admin">Admin</a></li>
+            {% for message in messages %}
+            <li>{{message}}</li>
+            {% endfor %}
         </ul>
-        <span>
-            {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                    <ul>
-                        {% for message in messages %}
-                            <li>{{message}}</li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
-            {% endwith %}
-        </span>
-        {% block content %} 
-        {% endblock %}
-    </body>
+        {% endif %}
+        {% endwith %}
+    </span>
+    {% block content %}
+    {% endblock %}
+</body>
+
 </html>

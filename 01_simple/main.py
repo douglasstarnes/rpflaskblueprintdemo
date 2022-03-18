@@ -45,7 +45,7 @@ def logout():
 def catalog():
     return render_template("catalog.html", items=state["catalog"])
 
-@app.route("/cart")
+@app.route("/cart/view")
 def cart():
     if not state["logged_in"]:
         return redirect(url_for("index"))

@@ -4,7 +4,7 @@ from app_state import state
 
 cart_blueprint = Blueprint("cart", __name__, template_folder="templates/cart", static_folder="static", static_url_path="assets")
 
-@cart_blueprint.route("/")
+@cart_blueprint.route("/view")
 def cart():
     if not state["logged_in"]:
         return redirect(url_for("index"))
